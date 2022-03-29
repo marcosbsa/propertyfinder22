@@ -1,0 +1,18 @@
+<div class="was-validated">
+<section class="form-auth text-center">
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<br><br>
+  <h1 class="h3 mt-4 mb-3 font-weight-normal">Please Sign Up</h1>
+  
+    <%= f.text_field :first_name, class: "form-control is-invalid", placeholder: "First Name", required: true %>
+    <%= f.text_field :last_name, class: "form-control", placeholder: "Last Name", required: true %>
+    <%= f.email_field :email, autocomplete: "email", class: "form-control", placeholder: "Email", required: true %>
+    <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "Password", required: true %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "Password confirmation", required: true %>
+   
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+<% end %>
+
+<%= render "devise/shared/links" %>
+</section>
+</div>

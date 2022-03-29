@@ -1,0 +1,42 @@
+
+<main role="main" class="main-banner" id="home-banner">
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-4">Search for your new home today...</h1>
+      <p>Choose from hundreds of beaultiful bungalows, apartaments and condominiums.</p>
+    </div>
+  </div>
+
+    <section id="latest-properties" class="mb-5">
+    <div class="container">
+        <div class="container">
+      <div class="row">
+       <div class="col">
+         <h3 class="mb-4">Latest Properties</h3>
+       </div>
+    </div>
+      <div class="row">
+        <%= render "properties/list", properties: @properties %>
+     </div>
+    </div>
+  </section>
+
+
+
+  <section id="latest-posts" class="mb-5">  
+    <div class="container">
+      <div class="row">
+       <div class="col">
+         <h3 class="mb-4">Latest News</h3>
+       </div>
+    </div>
+    <div class="row">
+        <%= render "posts/list", posts: @posts %>
+    </div>
+   </div>
+  </section>
+    
+  </div> <!-- /container -->
+
+</main>
+

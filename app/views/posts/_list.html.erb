@@ -1,0 +1,17 @@
+<% posts.each do |post| %>
+  <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
+   <div class="property border">
+    <div class="property-thumb" style="background-image: url(<%= post_image_url(post) %>)">
+      <%= link_to "", post_path(post) %>
+      </div>
+  
+      <div class="property-sumary p-3">
+         <h3 class="h5"><%= link_to post.title, post_path(post), class: "text-dark" %></h3>
+         <br>
+         <p class="text-muted pl-2"><em>Posted <%= time_ago_in_words post.created_at %></em></p>
+
+     </div>
+  </div>
+</div>
+<% end %>
+

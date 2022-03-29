@@ -1,0 +1,23 @@
+<main role="main" class="main-banner" id="blog-banner">
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-4">Latest Blog</h1>
+      <p>Stay up to date with the latest property news at Property Finder!</p>
+    </div>
+  </div>
+</main>
+
+<div class="container">
+<% if @posts.empty? %>
+  <p>No posts to display.</p>
+<% else %>
+     <div class="row">
+     <%= render "posts/list", posts: @posts %> 
+       </div>
+    </div>
+    <div> 
+</section>
+  <% end %>
+
+
+

@@ -1,0 +1,82 @@
+<%= form_for @property, html: {multpart: true} do |form| %>
+<%= render "layouts/validation", item: @property %>
+  <%# <% if property.errors.any? %>
+    <%# <div id="error_explanation">
+      <%# <h2><%= pluralize(property.errors.count, "error")  prohibited this property from being saved:</h2>
+
+      <ul>
+        <% property.errors.full_messages.each do |message| %>
+          <%# <li><%= message</li>  %>
+        <%# <% end %> 
+      <%# </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.text_field :name, class: "form-control", placeholder: "Name" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.text_field :address, class: "form-control", placeholder: "Address" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.number_field :price, min:"1000", class: "form-control", placeholder: "Total Price (for sale) / Monthly Price (rental)"  %>
+  </div>
+
+  <div class="form-group">
+    <%= form.number_field :rooms, min:"1", class: "form-control", placeholder: "Rooms" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.number_field :bathrooms, min:"1", class: "form-control", placeholder: "Bathrooms" %>
+  </div>
+
+   <div class="form-group">
+    <%= form.number_field :parking_spaces, min:"1", class: "form-control", placeholder: "Parking Spaces" %>
+  </div>
+
+   <div class="form-group">
+    <%= form.number_field :square_feet, min:"1", class: "form-control", placeholder: "Square Feet" %>
+  </div>
+
+    <div class="form-group">
+    <%= form.label :for_sale %>
+    <%= form.select :for_sale, options_for_select({"Yes" => true, "No"=> false }, @property.for_sale), class: "form-control" %>
+  </div>
+
+    <div class="form-group">
+    <% opts = @property.for_sale? ? { "Available" => "available", "Sold" => "sold" } : { "Available" => "available", "Leased" => "leased" } %>
+    <%= form.label :status %>
+    <%= form.select :status, options_for_select(opts, @property.status), class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :available_date %>
+    <%= form.date_field :available_date, class: "form-control" %>
+  </div>
+
+    <div class="form-group">
+    <%= form.text_area :details, class: "form-control", placeholder:"Details" %>
+  </div>
+
+   <div class="form-group">
+    <%= form.label 'Photo Banner' %>
+    <%= form.file_field :photo, class: "form-control" %>
+    <br/>
+    <% if @property.photo.present? %>
+    <%= image_tag @property.photo.url (:medium), class: "mt-4" %>
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label 'Photos Gallery' %>
+    <%= form.file_field :documentos, multiple: true, class: "form-control" %>
+  </div>
+
+ <div class="form-group">
+    <%= form.submit "Submit", class: "btn btn btn-success"%>
+  </div>
+
+  
+<% end %>

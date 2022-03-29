@@ -1,0 +1,125 @@
+<%# <p id="notice"><%= notice ></p> %>
+
+<%# Para funcionar efeito lightbox %>
+<%= stylesheet_link_tag 'magnific-popup', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'jquery.min.js', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'magnific-popup.js', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'scripts.js', 'data-turbolinks-track' => true %>
+<script src="https://js.stripe.com/v3/"></script>
+
+
+
+
+<div class="property-main-photo" style="background-image:url('<%= property_photo_url @property %>')">
+  <div class="photo-overlay">
+</div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+     <div class="row">
+      <div class="col-lg-4">
+         <p class="h4 mb-0"><%= @property.for_sale ? "For Sale" : "For Rent" %></p>
+         <p class="mb-2"><%= @property.address %></p>
+         <p class="h2 mb-3">
+         <% if @property.for_sale? %>
+          <%= @property.price > 0 ? number_to_currency(@property.price, precision: 0) : "Offers Accepted" %>
+        <% else %>
+          <%= @property.price > 0 ? number_to_currency(@property.price, precision: 0) : "Open for enquiries" %>/month
+         <% end %>
+         </p>
+      </div>
+      <div class="col-lg-7 ml-5 text-center">
+       <div class="row mt-sm-3 bg-light p-2">
+         <div class="col-3">
+           <i class="fas fa-bed text-muted m-0"></i><br />
+           <small><%= @property.rooms %> Bedrooms</small>
+         </div>
+         <div class="col-3">
+           <i class="fas fa-bath text-muted m-0"></i><br />
+           <small><%= @property.bathrooms %> Bathrooms</small>
+         </div>
+         <div class="col-3">
+           <i class="fas fa-square text-muted m-0"></i><br />
+           <small><%= @property.square_feet %> ft²</small>
+         </div>
+         <div class="col-3">
+           <i class="fas fa-car text-muted m-0"></i><br />
+           <small><%= @property.parking_spaces %> Parking</small>
+         </div>
+      </div>
+    </div>
+  </div>
+  <div class="row border-top border-bottom mt-5 mb-4 pt-4 pb-4">
+    <div class="col-6">
+      <% if @property.for_sale %>
+      <strong><%= link_to "Est. Monthly Repayments of #{ number_to_currency((@property.price - (@property.price * 0.1)) / 360, precision: 0) } *", "#", class: "text-success" %></strong>
+      <% else %>
+      <strong>Available from <%= @property.available_date.strftime("%a") %>, <%= @property.available_date.day.ordinalize %> <%= @property.available_date.strftime("%b") %></strong>
+     <% end %>
+    </div>
+    <div class="col-6 text-right">
+      <%# <strong><%= link_to "Can I afford this property?", "#" , class: "text-success" </strong> %>
+      </div>
+      </div> 
+    <div class="row">
+      <div class="col">
+      <p class="h3"><%= @property.name %></p>
+      <p class="h5">Property Description</p>
+      
+      <div id="prop-details" class="">   
+      <%= simple_format @property.details %>
+      </div>
+
+      <button class="btn btn-outline-info mt-3" id="toggleDetails">Show more</button>
+
+      <div id="gallery" class="gallery">
+      <% @property.documentos.each_with_index do |documento, index| %>
+      <div class="gallery row pl-2">
+      <%# <%= image_tag(documento.url, target: '_blank')  ORIGINAL %> 
+      <%# Para funcionar efeito lightbox %>
+       <a href="<%= (documento.url) %>"> <img src="<%= (documento.url) %>"> </a>
+      </div>
+      <br />
+      <% end %>
+      </div>
+
+      <% if @property.for_sale %>
+      <%= link_to "Pay Commission", checkout_create_path, method: :get, params: { id: @property.id }, remote: true, class: "btn btn-success" %>
+    
+       <strong>(<%= number_to_currency((@property.price * 0.06)) %>)</strong> **
+      <p class="mt-5">** Real estate commission is 6% of the home’s sale price.</p>
+
+      <% end %>
+
+      <% if @property.for_sale %>
+      <p class="mt-5">* This rate is based on a 30 year mortgage, after paying an initial 10% down payment. Shorter term mortages would require a higher monthly replayment.</p>
+      <% end %>
+      </div>
+     </div>
+    </div>
+
+ <div class="col-md-4">
+    <%= render "properties/agent_details" %>  
+
+<iframe class="ml-lg-4 mt-3" width="240" height="240" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBwOWZ_C1sw6lYJhxYk_LJJCI2uM9GW8IA&q=<%= @property.address.to_param %>%" allowfullscreen></iframe>
+
+ </div>
+</div>
+</div>
+
+    <section class="mt-5 mb-5"> 
+    <div class="container">
+    <div class="row">
+    <div class="col-12">
+    <p class="h3 mb-3">Other properties by this agent</p>
+    </div>
+    <%= render "properties/list", properties: @agent_properties %>
+    </div>
+    </div>
+    </section>
+
+    <%= render "properties/send_email_modal", agent: @agent %>
+
+ 

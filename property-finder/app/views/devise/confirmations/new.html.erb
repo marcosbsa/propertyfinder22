@@ -1,0 +1,23 @@
+<section class="form-auth text-center">
+ <br><br>
+  <h1 class="h3 mb-3 mt-4 font-weight-normal">Resend confirmation instructions</h1>
+
+<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <label for="inputEmail" class="sr-only">Email</label>
+    <%= f.email_field :email, autofocus: true, class: "form-control", autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+  </div>
+  <br>
+  <div class="actions">
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Resend confirmation instructions</button>
+  <p class="mt-5 mb-3 text-muted">© 2017-2020</p>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+</section>
+
+<br><br>
