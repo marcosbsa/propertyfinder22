@@ -3,9 +3,10 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.1'
+ruby '2.6.3'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
+gem 'rails', '~> 6.0', '>= 6.0.3'
 # Use mysql as the database for Active Record
 gem 'figaro'
 gem 'pg'
@@ -36,8 +37,6 @@ gem 'carrierwave', '~> 2.0'
 
 gem 'stripe'
 
-gem 'sassc'
-
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -51,24 +50,14 @@ gem 'simple_form'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  # Monitoramento Rspec
-  gem 'database_cleaner', '1.7.0'
-  gem 'factory_bot_rails'
-  gem 'ffaker'
-  gem 'rails-controller-testing'
-  gem 'rspec-rails', '~> 5.0', '>= 5.0.1'
-  gem 'simplecov', require: false, group: :test # p/ abrir, digita no terminal: open coverage/index.html
+end
 
-  gem 'pry'
-  gem 'pry-byebug'
-  gem 'rest-client'
-  gem 'selenium-webdriver'
-  gem 'test-unit'
-
-  gem 'rubocop', '~> 1.18', require: false
-  gem 'stripe-ruby-mock', '~> 3.0.1', require: 'stripe_mock'
+group :development, :test do
+  gem 'rspec-rails', '~> 4.0.1'
 
   # Gems Eduardo
+  gem "database_cleaner", "1.7.0"
+  gem "rails-controller-testing", "1.0.4"
   # gem "vcr", "5.1.0"
 end
 
@@ -77,26 +66,18 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'letter_opener'
-  # gem 'spring'
-  # gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara'
-  gem 'capybara-email'
+  gem 'capybara', '>= 2.15'
+  gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
-  gem 'database_cleaner-active_record', '~> 2.0'
-  gem 'shoulda-matchers', '~> 4.5'
   gem 'webdrivers'
+  gem 'simplecov', require: false   # Comando open coverage/index.html para ver o relatório de testes
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-
-gem 'rails_12factor', group: :production
-
-# Sendgrid
-gem 'dotenv-rails', groups: %i[development test]
-gem 'sendgrid-ruby'
