@@ -65,8 +65,8 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.deliveries = []
-  config.action_mailer.default_url_options = { host: 'https://property-finder22.herokuapp.com/blog' }
+  # config.action_mailer.deliveries = []
+  # config.action_mailer.default_url_options = { host: 'https://property-finder22.herokuapp.com/blog' }
 
 
 
