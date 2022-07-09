@@ -242,6 +242,7 @@ GEM
     ruby-vips (2.1.4)
       ffi (~> 1.12)
     ruby_dep (1.5.0)
+    ruby_http_client (3.5.5)
     rubyzip (2.3.2)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
@@ -259,6 +260,8 @@ GEM
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2)
+    sendgrid-ruby (6.6.2)
+      ruby_http_client (~> 3.4)
     simple_form (5.1.0)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
@@ -345,6 +348,7 @@ DEPENDENCIES
   rspec-rails (~> 4.0.1)
   sass-rails (>= 6)
   selenium-webdriver
+  sendgrid-ruby (~> 6.6, >= 6.6.2)
   simple_form
   simplecov
   spring

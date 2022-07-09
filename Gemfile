@@ -37,6 +37,8 @@ gem 'carrierwave', '~> 2.0'
 
 gem 'stripe'
 
+gem 'sendgrid-ruby', '~> 6.6', '>= 6.6.2'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
