@@ -18,6 +18,6 @@ module PropertyFinder
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
-    config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+    config.action_mailer.default_url_options = { 'https://property-finder22.herokuapp.com/blog' }
   end
 end
