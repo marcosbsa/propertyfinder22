@@ -66,19 +66,19 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   # config.action_mailer.deliveries = []
-  config.action_mailer.default_url_options = { host: 'https://property-finder22.herokuapp.com/blog' }
+  config.action_mailer.default_url_options = { host: 'localhost', port:3000 }
 
 
 
 
 
-  ActionMailer::Base.smtp_settings = {
-    user_name: 'apikey', # This is the string literal 'apikey', NOT the ID of your API key
-    password: Rails.application.credentials.dig(:sendgrid, :api_key), # This is the secret sendgrid API key which was issued during API key creation
-    domain: 'property-finder22.herokuapp.com',
-    address: 'smtp.sendgrid.net',
-    port: 587,
-    authentication: :plain,
-    enable_starttls_auto: true
-  }
+  # ActionMailer::Base.smtp_settings = {
+  #   user_name: 'apikey', # This is the string literal 'apikey', NOT the ID of your API key
+  #   password: Rails.application.credentials.dig(:sendgrid, :api_key), # This is the secret sendgrid API key which was issued during API key creation
+  #   domain: 'property-finder22.herokuapp.com',
+  #   address: 'smtp.sendgrid.net',
+  #   port: 587,
+  #   authentication: :plain,
+  #   enable_starttls_auto: true
+  # }
 end
