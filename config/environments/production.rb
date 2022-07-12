@@ -120,15 +120,14 @@ Rails.application.configure do
   # config.action_mailer.deliveries = []
 
  
-
   
-  # config.action_mailer.smtp_settings = {
-  #   address: 'smtp.sendgrid.net',
-  #   port: 587,
-  #   domain: 'property-finder22.herokuapp.com',
-  #   user_name: ENV['SENGRID_USERNAME'],
-  #   password: ENV['SENGRID_PASSWORD'],
-  #   authentication: :plain,
-  #   enable_starttls_auto: true
-  #   }
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.sendgrid.net',
+    port: 587,
+    domain: 'property-finder22.herokuapp.com',
+    user_name: ENV['SENGRID_USERNAME'],
+    password: ENV['SENGRID_PASSWORD'],
+    authentication: :plain,
+    enable_starttls_auto: true
+    }
 end
