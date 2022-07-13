@@ -21,7 +21,7 @@ Devise.setup do |config|
 
   
   config.mailer_sender = if Rails.env.production?
-    Rails.application.credentials.gmail[:user_name].to_s
+    Rails.application.credentials.gmail[:mailer_sender] 
  else
     'marcosbsa@gmail.com'
  end
