@@ -7,4 +7,3 @@
 # $driver = Selenium::WebDriver.for :chrome
 # $wait = Selenium::WebDriver::Wait.new(:timeout => 10)
 
-DEV_SENDGRID_API_KEY=MYAPIKEY
