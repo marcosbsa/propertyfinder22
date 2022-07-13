@@ -120,29 +120,29 @@ Rails.application.configure do
   # config.action_mailer.deliveries = []
 
  
-  config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
-    port: 587,
-    domain: 'gmail.com',
-    user_name: Rails.application.credentials.gmail[:user_name],
-    password: Rails.application.credentials.gmail[:password],
-    authentication: :plain,
-    enable_starttls_auto: true
-    }
+  # config.action_mailer.smtp_settings = {
+  #   address: 'smtp.gmail.com',
+  #   port: 587,
+  #   domain: 'gmail.com',
+  #   user_name: Rails.application.credentials.gmail[:user_name],
+  #   password: Rails.application.credentials.gmail[:password],
+  #   authentication: :plain,
+  #   enable_starttls_auto: true
+  #   }
 
 
-  # if ENV["SENDGRID_API_KEY"]
-  #   ActionMailer::Base.smtp_setting = {
-  #     user_name: "apikey",
-  #     password: ENV['SENGRID_API_KEY'],
-  #     domain: 'property-finder22.herokuapp.com',
-  #     address: 'smtp.sendgrid.net',
-  #     port: 587,
-  #     authentication: :plain,
-  #     enable_starttls_auto: true
-  # }
-  # ActionMailer::Base.default_options = {
-  #   from: "Property Finder <marcosbsa@gmail.com>"
-  # }
+  if ENV["SENDGRID_API_KEY"]
+    ActionMailer::Base.smtp_setting = {
+      user_name: "apikey",
+      password: ENV['SENGRID_API_KEY'],
+      domain: 'property-finder22.herokuapp.com',
+      address: 'smtp.sendgrid.net',
+      port: 587,
+      authentication: :plain,
+      enable_starttls_auto: true
+  }
+  ActionMailer::Base.default_options = {
+    from: "Property Finder <marcosbsa@gmail.com>"
+  }
 
 end
