@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
 class ApplicationMailer < ActionMailer::Base
-  default from: 'admin@realtor.com'
+  default from: 'marcosbsa@gmail.com'
   layout 'mailer'
 end
