@@ -66,7 +66,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.perform_deliveries = true
   # config.action_mailer.deliveries = []
-  config.action_mailer.default_url_options = { host: 'property-finder22.herokuapp.com' }
+  # config.action_mailer.default_url_options = { host: 'property-finder22.herokuapp.com' }
 
 
 
