@@ -20,11 +20,11 @@ Devise.setup do |config|
   # with default "from" parameter.
 
   
-#   config.mailer_sender = if Rails.env.production?
-#     Rails.application.credentials.gmail[:mailer_sender] 
-#  else
-#     'marcosbsa@gmail.com'
-#  end
+  config.mailer_sender = if Rails.env.production?
+    Rails.application.credentials.gmail[:mailer_sender] 
+ else
+    'marcosbsa@gmail.com'
+ end
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
