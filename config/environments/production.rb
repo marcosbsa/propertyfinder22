@@ -116,7 +116,6 @@ Rails.application.configure do
   # Email:
   # config.action_mailer.default_url_options = { host: 'localhost', port:3000 }
   # config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.perform_deliveries = true
   # config.action_mailer.deliveries = []
 
 
@@ -134,7 +133,7 @@ Rails.application.configure do
 
 
   # if ENV["SENDGRID_API_KEY"]
-  #   ActionMailer::Base.smtp_setting = {
+  #   ActionMailer::Base.smtp_setting = { 
   #     user_name: "apikey",
   #     password: ENV['SENGRID_API_KEY'],
   #     domain: 'property-finder22.herokuapp.com',
