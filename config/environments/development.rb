@@ -63,25 +63,25 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  # config.action_mailer.delivery_method = :smtp
+  config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.perform_deliveries = true
   # config.action_mailer.deliveries = []
-  # config.action_mailer.default_url_options = { host: 'property-finder22.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
 
 
-
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host: 'property-finder22.herokuapp.com' }
-  config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
-    port: 587,
-    domain: 'property-finder22.herokuapp.com',
-    user_name: 'marcosbsa@gmail.com',
-    password: 'lulxdkxnhakunewu',
-    authentication: 'plain',
-    enable_starttls_auto: true
-    }
+  # config.action_mailer.perform_deliveries = true
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.default_url_options = { host: 'localhost', port:3000 }
+  # config.action_mailer.smtp_settings = {
+  #   address: 'smtp.gmail.com',
+  #   port: 587,
+  #   domain: 'gmail.com',
+  #   user_name: 'marcosbsa@gmail.com',
+  #   password: 'bbkylzuakabobayd',
+  #   authentication: 'plain',
+  #   enable_starttls_auto: true
+  #   }
 
 
 
