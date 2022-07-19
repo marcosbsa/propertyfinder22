@@ -20,7 +20,7 @@ Devise.setup do |config|
   # with default "from" parameter.
 
   config.mailer_sender = if Rails.env.production?
-                            Rails.application.credentials.gmail[:user_name]
+                            Rails.application.credentials.dig[:email]
                          else
                           'devise@example.com'
                          end
