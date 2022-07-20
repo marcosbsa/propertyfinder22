@@ -40,7 +40,6 @@ gem 'stripe'
 gem 'sendgrid-ruby', '~> 6.6', '>= 6.6.2'
 gem 'letter_opener'
 
-gem 'dotenv-rails', groups: [:development, :test]
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
