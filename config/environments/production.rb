@@ -166,4 +166,21 @@ Rails.application.configure do
   #   from: "Property Finder <marcosbsa@gmail.com>"
   # }
 
+
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.perform_deliveries = true
+  ActionMailer::Base.smtp_settings = {
+    address: 'smtp.gmail.com',
+    port: 465,
+    domain: 'gmail.com',
+    user_name: ENV['GMAIL_USERNAME'],
+    password: ENV['GMAIL_PASSWORD'],
+    authentication: 'plain',
+    ssl: true,
+    tsl: true,
+    enable_starttls_auto: true
+    }
+
+
+  
 end
